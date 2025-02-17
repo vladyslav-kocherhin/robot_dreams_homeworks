@@ -28,4 +28,4 @@ async function fetchWithFallback() {
     console.log("Фінальні отримані дані:", data);
 }
 
-fetchWithFallback();
+await fetchWithFallback();

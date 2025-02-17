@@ -1,15 +1,16 @@
 async function fetchData(url) {
     const response = await fetch(url);
-    const data = await response.json();
-    processData(data);
+    const fetchedData = await response.json();
+    return fetchedData;
 }
 
-async function processData(data) {
-    console.log("Оброблені дані:", data);
+async function processData(url) {
+    const data = await fetchData(url);
+    return console.log("Оброблені дані:", data);
 }
 
 // Викликаємо функцію з правильним API
-fetchData("https://catfact.ninja/fact");
+await processData("https://catfact.ninja/fact");
 
 // Викликаємо API який вертає 404 помилку
-fetchData("https://httpstat.us/404");
+await processData("https://httpstat.us/404");
