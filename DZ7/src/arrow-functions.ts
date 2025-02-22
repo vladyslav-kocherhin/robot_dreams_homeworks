@@ -16,5 +16,5 @@ const newStringsArray = ["10", "20", "30", "40"];
 
 // Виклик функцій
 
-//newSumArray(newNumbersArray);
-newSumArray(newStringsArray); 
+newSumArray(newNumbersArray);
+newSumArray(newStringsArray);
