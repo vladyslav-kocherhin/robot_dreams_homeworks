@@ -1,20 +1,12 @@
-const newSumArray = (arr: (number | string)[]): void => {
-    let sum: number = 0;
-    let text: string = "";
-    let isNumberArray: boolean = true;
+const newSumArray = (arr: number[] | string[]): void => {
+    if (arr.length === 0) {
+        console.log("Масив порожній.");
+        return;
+    }
 
-    arr.forEach(item => {
-        if (typeof item === "number") {
-            sum += item;
-        } else {
-            text += item;
-            isNumberArray = false; 
-        }
-    });
-
-    isNumberArray 
-        ? console.log("Сума чисел:", sum) 
-        : console.log("Об'єднаний текст:", text);
+    typeof arr[0] === "number"
+        ? console.log("Сума чисел:", (arr as number[]).reduce((acc, num) => acc + num, 0))
+        : console.log("Об'єднаний текст:", (arr as string[]).join(""));
 };
 
 // Створення двох масивів
@@ -24,5 +16,5 @@ const newStringsArray = ["10", "20", "30", "40"];
 
 // Виклик функцій
 
-newSumArray(newNumbersArray);
-//newSumArray(newStringsArray); 
+//newSumArray(newNumbersArray);
+newSumArray(newStringsArray); 
