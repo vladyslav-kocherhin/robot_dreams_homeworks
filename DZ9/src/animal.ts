@@ -1,20 +1,69 @@
 // Абстракція для тварини, яка задає основні характеристики, але залишає конкретну реалізацію підкласам
 
-abstract class Animal {
-    public constructor(public name: string) {}
+interface IAnimal {
+    makeSound(): void;
+}
+
+// Інтерфейс для домашніх тварин
+
+interface IHomeAnimal extends IAnimal {
+    feed(): void;
+    pet(): void;
+}
+
+// Інтерфейс для диких тварин
+
+interface IWildAnimal extends IAnimal {
+    hunt(): void;
+}
+
+// Базовий клас тварин
+
+abstract class Animal implements IAnimal {
+    public constructor(protected name: string) {}
+
     public abstract makeSound(): void;
 }
 
-class Dog extends Animal {
+// Клас для собаки (домашня тварина)
+
+class Dog extends Animal implements IHomeAnimal {
     public makeSound(): void {
-        console.log('Woof!');
+        console.log(`${this.name} гавкає: Гав-гав!`);
+    }
+
+    public feed(): void {
+        console.log(`${this.name} їсть корм.`);
+    }
+    public pet(): void {
+        console.log(`${this.name} радіє, коли його гладять.`);
     }
 }
 
-class Cat extends Animal {
+// Клас для кота (домашня тварина)
+
+class Cat extends Animal implements IHomeAnimal {
     public makeSound(): void {
-        console.log('Meow!');
+        console.log(`${this.name} мявкає: Мяв-мяв!`);
+    }
+
+    public feed(): void {
+        console.log(`${this.name} їсть корм.`);
+    }
+    public pet(): void {
+        console.log(`${this.name} радіє, коли його гладять.`);
     }
 }
 
-export { Animal, Dog, Cat };
+// Клас для вовка (дика тварина)
+
+class Wolf extends Animal implements IWildAnimal {
+    public makeSound(): void {
+        console.log(`${this.name} виє: Аууууу!`);
+    }
+    public hunt(): void {
+        console.log(`${this.name} полює в лісі.`);
+    }
+}
+
+export { IAnimal, IHomeAnimal, IWildAnimal, Animal, Dog, Cat, Wolf };
