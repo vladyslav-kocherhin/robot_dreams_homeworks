@@ -19,7 +19,6 @@ function processEntity(entity: IWaterHeater | Animal | Shape): void {
 // Функція для домашніх тварин
 
 function interactWithHomeAnimal(animal: IHomeAnimal): void {
-    animal.makeSound();
     animal.feed();
     animal.pet();
 }
@@ -27,7 +26,6 @@ function interactWithHomeAnimal(animal: IHomeAnimal): void {
 // Функція для диких тварин
 
 function interactWithWildAnimal(animal: IWildAnimal): void {
-    animal.makeSound();
     animal.hunt();
 }
 
