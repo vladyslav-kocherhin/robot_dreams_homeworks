@@ -16,50 +16,50 @@ interface IWildAnimal {
 abstract class Animal {
     public constructor(protected name: string) {}
 
-    public abstract makeSound(): void;
+    public abstract makeSound(): string;
 }
 
 // Клас для собаки (домашня тварина)
 
 class Dog extends Animal implements IHomeAnimal {
-    public makeSound(): void {
-        console.log(`${this.name} гавкає: Гав-гав!`);
+    public makeSound(): string {
+        return `${this.name} гавкає: Гав-гав!`;
     }
 
-    public feed(): void {
-        console.log(`${this.name} їсть корм.`);
+    public feed(): string {
+        return `${this.name} їсть корм.`;
     }
 
-    public pet(): void {
-        console.log(`${this.name} радіє, коли його гладять.`);
+    public pet(): string {
+        return `${this.name} радіє, коли його гладять.`;
     }
 }
 
 // Клас для кота (домашня тварина)
 
 class Cat extends Animal implements IHomeAnimal {
-    public makeSound(): void {
-        console.log(`${this.name} гавкає: Гав-гав!`);
+    public makeSound(): string {
+        return `${this.name} мявкає: Мяв-мяв!`;
     }
 
-    public feed(): void {
-        console.log(`${this.name} їсть корм.`);
+    public feed(): string {
+        return `${this.name} їсть корм.`;
     }
 
-    public pet(): void {
-        console.log(`${this.name} радіє, коли його гладять.`);
+    public pet(): string {
+        return `${this.name} радіє, коли його гладять.`;
     }
 }
 
 // Клас для вовка (дика тварина)
 
 class Wolf extends Animal implements IWildAnimal {
-    public makeSound(): void {
-        console.log(`${this.name} виє: Аууууу!`);
+    public makeSound(): string {
+        return `${this.name} виє: Аууууу!`;
     }
 
-    public hunt(): void {
-        console.log(`${this.name} полює в лісі.`);
+    public hunt(): string {
+        return `${this.name} полює в лісі.`;
     }
 }
 
