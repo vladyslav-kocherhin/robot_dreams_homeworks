@@ -39,18 +39,16 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3005",
-					"protocol": "http",
+					"raw": "{{baseURL}}",
 					"host": [
-						"localhost"
-					],
-					"port": "3005"
+						"{{baseURL}}"
+					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Grab a random joke 1",
+			"name": "/random_joke",
 			"event": [
 				{
 					"listen": "test",
@@ -75,12 +73,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/random_joke",
-					"protocol": "http",
+					"raw": "{{baseURL}}/random_joke",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"random_joke"
 					]
@@ -89,7 +85,7 @@
 			"response": []
 		},
 		{
-			"name": "Grab a random joke 2",
+			"name": "/jokes/random",
 			"event": [
 				{
 					"listen": "test",
@@ -114,12 +110,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/jokes/random",
-					"protocol": "http",
+					"raw": "{{baseURL}}/jokes/random",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"jokes",
 						"random"
@@ -129,7 +123,7 @@
 			"response": []
 		},
 		{
-			"name": "Get joke types",
+			"name": "/types",
 			"event": [
 				{
 					"listen": "test",
@@ -156,12 +150,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/types",
-					"protocol": "http",
+					"raw": "{{baseURL}}/types",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"types"
 					]
@@ -170,7 +162,7 @@
 			"response": []
 		},
 		{
-			"name": "Grab ten random jokes 1",
+			"name": "/random_ten",
 			"event": [
 				{
 					"listen": "test",
@@ -196,12 +188,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/random_ten",
-					"protocol": "http",
+					"raw": "{{baseURL}}/random_ten",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"random_ten"
 					]
@@ -210,7 +200,7 @@
 			"response": []
 		},
 		{
-			"name": "Grab ten random jokes 2",
+			"name": "/jokes/ten",
 			"event": [
 				{
 					"listen": "test",
@@ -236,12 +226,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/jokes/ten",
-					"protocol": "http",
+					"raw": "{{baseURL}}/jokes/ten",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"jokes",
 						"ten"
@@ -251,7 +239,7 @@
 			"response": []
 		},
 		{
-			"name": "Grab 5 random jokes",
+			"name": "/jokes/random/5",
 			"event": [
 				{
 					"listen": "test",
@@ -277,12 +265,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/jokes/random/5",
-					"protocol": "http",
+					"raw": "{{baseURL}}/jokes/random/5",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"jokes",
 						"random",
@@ -293,7 +279,7 @@
 			"response": []
 		},
 		{
-			"name": "Grab 250 random jokes",
+			"name": "/jokes/random/250",
 			"event": [
 				{
 					"listen": "test",
@@ -319,12 +305,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/jokes/random/250",
-					"protocol": "http",
+					"raw": "{{baseURL}}/jokes/random/250",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"jokes",
 						"random",
@@ -335,7 +319,7 @@
 			"response": []
 		},
 		{
-			"name": "Grab a random joke by type: Programming",
+			"name": "/jokes/programming/random",
 			"event": [
 				{
 					"listen": "test",
@@ -361,12 +345,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/jokes/programming/random",
-					"protocol": "http",
+					"raw": "{{baseURL}}/jokes/programming/random",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"jokes",
 						"programming",
@@ -377,7 +359,7 @@
 			"response": []
 		},
 		{
-			"name": "Grab a random joke by type: Dad",
+			"name": "/jokes/dad/random",
 			"event": [
 				{
 					"listen": "test",
@@ -403,12 +385,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/jokes/dad/random",
-					"protocol": "http",
+					"raw": "{{baseURL}}/jokes/dad/random",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "3005",
 					"path": [
 						"jokes",
 						"dad",
@@ -437,6 +417,13 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3005",
+			"type": "string"
 		}
 	]
 }
