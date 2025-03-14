@@ -1,10 +1,14 @@
 import { Dog, Cat, Wolf } from '../src/animal';
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
+import { describe, it, afterEach } from 'mocha';
 import { processEntity, interactWithHomeAnimal, interactWithWildAnimal } from '../src/entity-processor';
 import sinon from 'ts-sinon';
 
 describe('Animal unit tests', function () {
+
+    afterEach(() => {
+        sinon.restore();
+    });
 
     it('Should mock dog\'s makeSound method', function () {
         const dog = new Dog('Rex');
@@ -14,7 +18,6 @@ describe('Animal unit tests', function () {
         processEntity(dog);
 
         dogMock.verify();
-        dogMock.restore();
     });
 
     it('Should mock cat\'s feed and pet methods', function () {
@@ -27,8 +30,6 @@ describe('Animal unit tests', function () {
         expect(feedStub.calledOnce).to.be.true;
         expect(petStub.calledOnce).to.be.true;
 
-        feedStub.restore();
-        petStub.restore();
     });
 
     it('Should mock wolf\'s hunt method', function () {
@@ -38,7 +39,5 @@ describe('Animal unit tests', function () {
         interactWithWildAnimal(wolf);
 
         expect(huntSpy.calledOnce).to.be.true;
-
-        huntSpy.restore();
     });
 });

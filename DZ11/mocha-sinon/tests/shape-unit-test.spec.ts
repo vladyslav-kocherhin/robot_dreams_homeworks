@@ -1,9 +1,14 @@
 import { Rectangle, Square } from '../src/shape';
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
+import { describe, it, afterEach } from 'mocha';
 import sinon from 'ts-sinon';
 
 describe('Shape unit tests', function () {
+
+    afterEach(() => {
+        sinon.restore();
+    });
+
     it('Should correctly mock getArea method of Rectangle', function () {
         const rectangle = new Rectangle(2, 5);
         const areaStub = sinon.stub(rectangle, 'getArea').returns(100);
@@ -12,8 +17,6 @@ describe('Shape unit tests', function () {
 
         expect(area).to.equal(100);
         expect(areaStub.calledOnce).to.be.true;
-
-        areaStub.restore();
     });
 
     it('Should correctly mock getArea method of Square', function () {
@@ -24,7 +27,5 @@ describe('Shape unit tests', function () {
 
         expect(area).to.equal(50);
         expect(areaStub.calledOnce).to.be.true;
-
-        areaStub.restore();
     });
 });

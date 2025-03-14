@@ -2,11 +2,16 @@ import { Boiler } from '../src/boiler';
 import { Rectangle } from '../src/shape';
 import { Dog } from '../src/animal';
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
+import { describe, it, afterEach } from 'mocha';
 import { processEntity } from '../src/entity-processor';
 import sinon from 'ts-sinon';
 
 describe('Entity processor tests', function () {
+
+    afterEach(() => {
+        sinon.restore();
+    });
+
     it('Should process an Animal correctly', function () {
         const dog = new Dog('Buddy');
         const soundStub = sinon.stub(dog, 'makeSound');
@@ -14,8 +19,6 @@ describe('Entity processor tests', function () {
         processEntity(dog);
 
         expect(soundStub.calledOnce).to.be.true;
-
-        soundStub.restore();
     });
 
     it('Should process a Boiler correctly', function () {
@@ -25,8 +28,6 @@ describe('Entity processor tests', function () {
         processEntity(boiler);
 
         expect(heatStub.calledOnce).to.be.true;
-
-        heatStub.restore();
     });
 
     it('Should process a Shape correctly', function () {
@@ -36,7 +37,5 @@ describe('Entity processor tests', function () {
         processEntity(rectangle);
 
         expect(areaStub.calledOnce).to.be.true;
-
-        areaStub.restore();
     });
 });
