@@ -64,6 +64,9 @@ describe('Ukrposhta Puppeteer Tests', () => {
 
         // Закриваємо повідомлення cookie
         await page.waitForSelector('input#masseg_cookie', { visible: true, timeout: 5000 });
+        if ((await page.$('input#masseg_cookie')) !== null) {
+            await page.click('input#masseg_cookie');
+        }
         await page.click('input#masseg_cookie');
 
         // Прокрутка вниз, кнопка повинна з'явитися
