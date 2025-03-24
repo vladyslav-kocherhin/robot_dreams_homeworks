@@ -1,1 +1,2 @@
-export * from './ukrposhta.page';
+export * from './header.page';
+export * from './base.page';
