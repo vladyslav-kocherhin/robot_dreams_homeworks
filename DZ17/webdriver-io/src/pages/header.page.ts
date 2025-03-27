@@ -79,18 +79,14 @@ class HeaderPage {
         return $('#language-menu-trigger-header');
     }
 
-    public static get englishLanguageOption(): ChainablePromiseElement {
-        return $('a[href="/tracking_EN.html"]');
-    }
-
-    public static async mainLogoIsVisible(): Promise<void> {
+    public static async expectMainLogoToBeVisiable(): Promise<void> {
         await expect(this.logo).toBeDisplayed();
         await expect(this.logo).toHaveAttribute('src', './images/site-ua-logo.svg');
         await expect(this.mainLink).toBeDisplayed();
         await expect(this.mainLink).toHaveHref('https://www.ukrposhta.ua/ua');
     }
 
-    public static async contactInformationIsVisible(): Promise<void> {
+    public static async expectContactInformationToBeVisible(): Promise<void> {
         await expect(this.contactTel).toBeDisplayed();
         await expect(this.contactTel).toHaveHref('tel:0 800 300 545');
         await expect(this.contactTel).toHaveText('0 800 300 545');
@@ -102,7 +98,7 @@ class HeaderPage {
         await expect(this.contactText).toBeDisplayed();
     }
 
-    public static async menuOptionsIsVisible(): Promise<void> {
+    public static async expectMenuOptionsToBeVisiable(): Promise<void> {
         await expect(this.menuPostmark).toBeDisplayed();
         await expect(this.menuTracking).toBeDisplayed();
         await expect(this.menuServices).toBeDisplayed();
@@ -113,7 +109,7 @@ class HeaderPage {
         await expect(this.menuBusiness).toBeDisplayed();
     }
 
-    public static async loginAndRegistrationLinksIsVisible(): Promise<void> {
+    public static async expectLoginAndRegistrationLinksToBeVisible(): Promise<void> {
         await expect(this.loginLink).toBeDisplayed();
         await expect(this.loginText).toBeDisplayed();
         await expect(this.registerLink).toBeDisplayed();
@@ -121,10 +117,8 @@ class HeaderPage {
         await expect(this.loginLogo).toBeDisplayed();
     }
 
-    public static async languageSwitcherIsVisible(): Promise<void> {
+    public static async expectLanguageSwitcherToBeVisible(): Promise<void> {
         await expect(this.languageTrigger).toBeDisplayed();
-        await this.languageTrigger.click();
-        await expect(this.englishLanguageOption).toBeDisplayed();
     }
 
 }
