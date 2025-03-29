@@ -7,6 +7,10 @@ export interface FavouriteResponse {
     id: number;
     image_id: string;
     sub_id: string;
+    image?: {
+        id: string;
+        url: string;
+    };
 }
 
 export interface VoteResponse {
@@ -14,6 +18,10 @@ export interface VoteResponse {
     image_id: string;
     sub_id: string;
     value: number;
+    image?: {
+        id: string;
+        url: string;
+    };
 }
 
 export interface OrderDto {

@@ -1,5 +1,6 @@
 import path from 'path';
 import { PactV3, MatchersV3 } from '@pact-foundation/pact';
+import { Verifier } from '@pact-foundation/pact';
 import { expect } from 'chai';
 import axios from 'axios';
 import fs from 'fs';
@@ -62,5 +63,14 @@ describe('PactV3 Store Order - POST /store/order', () => {
             expect(response.status).to.equal(200);
             expect(response.data).to.deep.equal(orderExample);
         });
+    });
+});
+
+describe('PactV3 Store Provider Verification', () => {
+    it('validates the expectations of Store-Web-v3 consumer', () => {
+        return new Verifier({
+            providerBaseUrl: 'https://petstore.swagger.io',
+            pactUrls: [path.resolve(process.cwd(), './pacts/Store-Web-v3-Store-API-v3.json')]
+        }).verifyProvider();
     });
 });

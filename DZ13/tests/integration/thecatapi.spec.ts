@@ -9,6 +9,7 @@ describe('TheCatAPI Integration: images ↔ favourites ↔ votes', () => {
     const sub_id = 'robot_dreams_user';
 
     let imageId: string;
+    let imageUrl: string;
     let favouriteId: number;
     let voteId: number;
 
@@ -16,8 +17,13 @@ describe('TheCatAPI Integration: images ↔ favourites ↔ votes', () => {
         const res = await axios.get<ImageSearchResponse[]>(`${BASE_URL}/images/search`, { headers });
         expect(res.status).to.equal(200);
         expect(res.data).to.be.an('array').that.is.not.empty;
-        imageId = res.data[0].id;
+
+        const image = res.data[0];
+        imageId = image.id;
+        imageUrl = image.url;
+
         expect(imageId).to.be.a('string');
+        expect(imageUrl).to.be.a('string');
     });
 
     it('POST /favourites — додати картинку в улюблене', async () => {
@@ -41,14 +47,16 @@ describe('TheCatAPI Integration: images ↔ favourites ↔ votes', () => {
 
     it('GET /favourites — перевірити, що картинка в улюбленому', async () => {
         const res = await axios.get<FavouriteResponse[]>(`${BASE_URL}/favourites?sub_id=${sub_id}`, { headers });
-        const found = res.data.find(f => f.image_id === imageId);
-        expect(found).to.exist;
+        const found = res.data.find(f => f.image_id === imageId && f.image?.url === imageUrl);
+        expect(found, 'Картинка не знайдена серед улюблених').to.exist;
+        expect(found!.image?.url).to.equal(imageUrl);
     });
 
     it('GET /votes — перевірити наявність голосу', async () => {
         const res = await axios.get<VoteResponse[]>(`${BASE_URL}/votes?sub_id=${sub_id}`, { headers });
-        const found = res.data.find(v => v.image_id === imageId && v.id === voteId);
-        expect(found).to.exist;
+        const found = res.data.find(v => v.image_id === imageId && v.id === voteId && v.image?.url === imageUrl);
+        expect(found, 'Голос не знайдено').to.exist;
+        expect(found!.image?.url).to.equal(imageUrl);
     });
 
     it('DELETE /votes/{vote_id} — видалити голос', async () => {
