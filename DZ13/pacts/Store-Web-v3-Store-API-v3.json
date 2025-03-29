@@ -1,0 +1,74 @@
+{
+  "consumer": {
+    "name": "Store-Web-v3"
+  },
+  "interactions": [
+    {
+      "description": "a request to place a new order",
+      "providerStates": [
+        {
+          "name": "order can be placed"
+        }
+      ],
+      "request": {
+        "body": {
+          "complete": true,
+          "id": 1234,
+          "petId": 5678,
+          "quantity": 1,
+          "shipDate": "2025-03-28T12:00:00.000Z",
+          "status": "placed"
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/v2/store/order"
+      },
+      "response": {
+        "body": {
+          "complete": true,
+          "id": 1234,
+          "petId": 5678,
+          "quantity": 1,
+          "shipDate": "2025-03-28T12:00:00.000Z",
+          "status": "placed"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "15.0.1"
+    },
+    "pactRust": {
+      "ffi": "0.4.22",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "Store-API-v3"
+  }
+}
