@@ -2,10 +2,7 @@ import { expect, Locator, Page } from '@playwright/test';
 
 export class JoobleHomePage {
     private readonly page: Page;
-    //private readonly searchInput: Locator;
-    //private readonly searchButton: Locator;
-    //private readonly locationInput: Locator;
-    //private readonly resultsBlock: Locator;
+
     private readonly logo: Locator;
     private readonly jobsSearchOptionInHeader: Locator;
     private readonly qRCodeOptionInHeader: Locator;
@@ -21,13 +18,16 @@ export class JoobleHomePage {
     private readonly locationField: Locator;
     private readonly searchButton: Locator;
 
+    private readonly similarJobs: Locator;
+    private readonly dateFilter: Locator;
+    private readonly advancedFilter: Locator;
+    private readonly searchResults: Locator;
+    private readonly telegramSubscribeButton: Locator;
+    private readonly viberSubscribeButtonInDropdown: Locator;
+
 
     public constructor(page: Page) {
         this.page = page;
-        /*this.searchInput = page.locator('input[data-test-name="_searchFormKeywordInput"]');
-        this.locationInput = page.locator('input[name="rgn"]');
-        this.searchButton = page.locator('button[type="submit"]');
-        this.resultsBlock = page.locator('.vacancy-item'); // змінити, якщо зміниться клас*/
 
         this.logo = page.locator('#logo');
         this.jobsSearchOptionInHeader = page.locator('#jobsSearch');
@@ -43,25 +43,18 @@ export class JoobleHomePage {
         this.searchField = page.locator('#search');
         this.locationField = page.locator('input.js-main-region.form-control ');
         this.searchButton = page.locator('#sm-but');
+
+        this.similarJobs = page.locator('p.similar-jobs.flex.flex-align-center');
+        this.dateFilter = page.locator('#dropdownMenu2');
+        this.advancedFilter = page.locator('#adv-search');
+        this.searchResults = page.locator('#pjax-jobs-list');
+        this.telegramSubscribeButton = page.locator('#telegramSubscribeBtn');
+        this.viberSubscribeButtonInDropdown = page.locator('#viberSubscribeBtn');
     }
 
     public async open(): Promise<void> {
         await this.page.goto('https://www.work.ua/');
     }
-
-    /*public async searchJob(keyword: string, location: string): Promise<void> {
-        await this.searchInput.fill(keyword);
-        await this.locationInput.fill(location);
-        await this.searchButton.click();
-    }
-
-    public async isResultsVisible(): Promise<boolean> {
-        return this.resultsBlock.first().isVisible();
-    }
-
-    public async getResultsCount(): Promise<number> {
-        return this.resultsBlock.count();
-    }*/
 
     public async isLogoVisible(): Promise<void> {
         await expect(this.logo).toBeVisible();
@@ -135,6 +128,30 @@ export class JoobleHomePage {
         await this.searchField.fill(keyword);
         await this.locationField.fill(location);
         await this.searchButton.click();
+    }
+
+    public async isSimilarJobsVisible(): Promise<void> {
+        await expect(this.similarJobs).toBeVisible();
+    }
+
+    public async isDateFilterVisible(): Promise<void> {
+        await expect(this.dateFilter).toBeVisible();
+    }
+
+    public async isAdvancedFilterVisible(): Promise<void> {
+        await expect(this.advancedFilter).toBeVisible();
+    }
+
+    public async isSearchResultsVisible(): Promise<void> {
+        await expect(this.searchResults).toBeVisible();
+    }
+
+    public async isTelegramSubscribeButtonVisible(): Promise<void> {
+        await expect(this.telegramSubscribeButton).toBeVisible();
+    }
+
+    public async isViberSubscribeButtonInDropdownVisible(): Promise<void> {
+        await expect(this.viberSubscribeButtonInDropdown).toBeVisible();
     }
 
 };

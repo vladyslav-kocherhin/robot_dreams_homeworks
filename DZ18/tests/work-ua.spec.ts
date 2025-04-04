@@ -23,8 +23,11 @@ test.describe('Work.ua homepage tests', () => {
         await pageObject.isEmployerLinkInHeaderVisible();
     });
 
-    /*test('Should verify search functionality', async () => {
+    test('Should verify search functionality', async () => {
         await pageObject.searchJob('QA', 'Київ');
-    });*/
+        await pageObject.isDateFilterVisible();
+        await pageObject.isAdvancedFilterVisible();
+        await pageObject.isSearchResultsVisible();
+    });
 
 });
