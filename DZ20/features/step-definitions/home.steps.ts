@@ -1,16 +1,13 @@
 import { Given, Then} from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { HomePage } from '../../src/pages/home-page';
-//import { SearchResultsPage } from '../../src/pages/search-results-page';
 import { CustomWorld } from '../support/world';
 
 let homePage: HomePage;
-//let searchResultsPage: SearchResultsPage;
 
 Given<CustomWorld>('I open home page Work.ua', async function () {
     await this.page.goto('https://www.work.ua/');
     homePage = new HomePage(this.page);
-    //searchResultsPage = new SearchResultsPage(this.page);
 });
 
 Then<CustomWorld>('All header elements should be visible', async function () {
