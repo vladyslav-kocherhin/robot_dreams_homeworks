@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+//import { report } from 'process';
 
 /**
  * Read environment variables from file.
@@ -22,7 +23,14 @@ export default defineConfig({
     /* Opt out of parallel tests on CI. */
     workers: process.env.CI ? 1 : undefined,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-    reporter: [['html'], ['allure-playwright']],
+    reporter: [['html'], ['allure-playwright'], ['pwmochawesome', {
+        outputJSON: true,
+        outputFileName: 'mochawesome.json',
+        generateHTML: true,
+        reportDir: 'mochawesome-report',
+        reportTitle: 'Playwright Mochawesome',
+        charts: false
+    }]],
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         /* Base URL to use in actions like `await page.goto('/')`. */
@@ -54,7 +62,7 @@ export default defineConfig({
                 storageState: 'browser-context.json'
             },
             testMatch: 'jooble/**/*.@(spec|test).?(c|m)[t]s?(x)',
-            dependencies: ['jooble-test']
+            //dependencies: ['jooble-test']
         }
 
         // {

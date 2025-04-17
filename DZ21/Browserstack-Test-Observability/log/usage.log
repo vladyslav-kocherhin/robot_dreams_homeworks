@@ -41,3 +41,11 @@
 
 2025-04-14 21:21:10 - [32minfo[39m: SDK run ended for id: 6298fedc-4823-429f-a32b-446ef744854c, testhub id: y8rffecehc414eauksiiucvjgizsavm8ceoka21q
 2025-04-14 21:21:11 - [32minfo[39m: Deleting C:\Users\Dell\Desktop\robot_dreams\DZ21\Browserstack-Test-Observability\playwright-browserstack-sdk.config.ts
+2025-04-18 02:27:40 - [32minfo[39m: Running SDK with args C:\nvm4w\nodejs\node.exe C:\Users\Dell\Desktop\robot_dreams\DZ21\Browserstack-Test-Observability\node_modules\browserstack-node-sdk\src\bin\runner.js playwright test
+2025-04-18 02:27:40 - [32minfo[39m: Reading configs from C:\Users\Dell\Desktop\robot_dreams\DZ21\Browserstack-Test-Observability\browserstack.yml
+2025-04-18 02:27:40 - [32minfo[39m: SDK run started with id: 9a5ceafb-4d1e-431f-97d6-b2e88919fd36
+2025-04-18 02:27:42 - [32minfo[39m: Testhub started with id: 4kykzjnqe6ze5bz7tstpvzcwyxmggva7qllrusok
+2025-04-18 02:28:12 - [32minfo[39m: Visit https://observability.browserstack.com/builds/4kykzjnqe6ze5bz7tstpvzcwyxmggva7qllrusok to view build report, insights, and many more debugging information all at one place!
+
+2025-04-18 02:28:12 - [32minfo[39m: SDK run ended for id: 9a5ceafb-4d1e-431f-97d6-b2e88919fd36, testhub id: 4kykzjnqe6ze5bz7tstpvzcwyxmggva7qllrusok
+2025-04-18 02:28:14 - [32minfo[39m: Deleting C:\Users\Dell\Desktop\robot_dreams\DZ21\Browserstack-Test-Observability\playwright-browserstack-sdk.config.ts

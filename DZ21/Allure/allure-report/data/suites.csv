@@ -1,4 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","15848","Should verify all elements in footer","jooble-test","Mon Apr 14 15:43:34 EEST 2025","passed","Mon Apr 14 15:43:49 EEST 2025","Dnipro-m tests","dnipro-m.spec.ts","",""
-"","16007","Should verify back to top button functionality","jooble-test","Mon Apr 14 15:43:34 EEST 2025","passed","Mon Apr 14 15:43:50 EEST 2025","Dnipro-m tests","dnipro-m.spec.ts","",""
-"","13191","Should verify all elements in header","jooble-test","Mon Apr 14 15:43:34 EEST 2025","passed","Mon Apr 14 15:43:47 EEST 2025","Dnipro-m tests","dnipro-m.spec.ts","",""
