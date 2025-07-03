@@ -1,12 +1,12 @@
 {
   "exclude": [
     "eslint.config.mjs",
-    "./build/**/*",
-    "./node_modules/**/*"
+    "build/**/*",
+    "node_modules/**/*"
   ],
   "compilerOptions": {
     "types": ["mocha", "node"],
-    "baseUrl": "./",
+    "baseUrl": "",
     "target": "ES6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "lib": ["es6", "DOM"],
     "module": "commonjs",                                /* Specify what module code is generated. */

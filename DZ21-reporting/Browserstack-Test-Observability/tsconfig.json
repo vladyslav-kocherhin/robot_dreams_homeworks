@@ -1,11 +1,11 @@
 {
   "exclude": [
     "eslint.config.mjs",
-    "./build/**/*",
-    "./node_modules/**/*"
+    "build/**/*",
+    "node_modules/**/*"
   ],
   "compilerOptions": {
-    "baseUrl": "./",                              /* Base directory to resolve non-relative module names. */
+    "baseUrl": "",                              /* Base directory to resolve non-relative module names. */
     "target": "ES6",                              /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "lib": [
       "ESNext",
@@ -13,7 +13,7 @@
       "DOM"
     ],                                            /* Specify library files to be included in the compilation. */
     "module": "CommonJS",                         /* Specify what module code is generated. */
-    "rootDir": "./",                              /* Specify the root directory of input files. */
+    "rootDir": "",                              /* Specify the root directory of input files. */
     "resolveJsonModule": true,                    /* Include modules imported with .json extension. */
     "allowJs": true,                              /* Allow JavaScript files to be compiled. */
     "outDir": "build",                            /* Redirect output structure to the directory. */
